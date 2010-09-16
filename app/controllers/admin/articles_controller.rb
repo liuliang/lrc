@@ -37,11 +37,9 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
-        format.html { redirect_to(@article) }
-        format.xml  { render :xml => @article, :status => :created, :location => @article }
+        format.html { redirect_to admin_article_url(@article) }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
       end
     end
   end

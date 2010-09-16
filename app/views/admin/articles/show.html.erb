@@ -1,3 +1,7 @@
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% content_for :left_side do -%>
+<%= render :partial => 'left_side' ,:locals => { :on => 1 } %>
+<% end -%>
+<% content_for :main do -%>
+<h1>Article</h1>
+<%= render :partial => 'article' %>
+<% end -%>
