@@ -1,0 +1,7 @@
+<% on ||= 1 %>
+<ul>
+  <li><a href="/admin/articles" <%= is_on?(on, 1) %>>所有文章</a></li>
+</ul>
+<ul>
+  <li><a href="/admin/articles/new" <%= is_on?(on, 2) %>>新增文章</a></li>
+</ul>

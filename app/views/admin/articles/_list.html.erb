@@ -1,0 +1,10 @@
+<div class="box">
+  <table class="table border">
+    <caption>查询结果</caption>
+    <tbody>
+      <% @articles.each do |article| -%>
+        <tr><%= article.title %></tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>

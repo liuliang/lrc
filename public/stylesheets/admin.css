@@ -1,0 +1,125 @@
+body {
+background:url("/images/content.png") repeat-y scroll 0 0 #EEEEEE;
+color:#444444;
+font:12px/1.7 Arial,"宋体";
+}
+
+body, div, h1, h2, h3, h4, h5, h6, form, label, option {
+margin:0;
+padding:0;
+}
+
+#scene {
+background:url("/images/header_bg.png") repeat-x scroll 0 0 transparent;
+}
+
+#header {
+background:no-repeat scroll 0 0 transparent;
+height:58px;
+padding-right:30px;
+}
+
+#login {
+float:right;
+margin-top:12px;
+}
+
+#logo a {
+display:block;
+float:left;
+height:45px;
+margin-right:80px;
+width:120px;
+font-size:20px;
+padding-left: 20px;
+padding-top: 5px;
+}
+
+#nav {
+float:left;
+margin-top:10px;
+}
+
+.nav ul {
+list-style-type:none;
+margin:0;
+overflow:hidden;
+padding:0;
+}
+
+.nav li {
+display:inline;
+}
+
+content {
+height:auto !important;
+min-height:660px;
+overflow:hidden;
+padding:10px 20px 10px 0;
+}
+
+.clearfix {
+display:block;
+}
+
+#nav2 {
+float:left;
+width:130px;
+}
+
+#main {
+float:right;
+width:1088px;
+padding-right:20px;
+}
+
+#page {
+width:1258px;
+}
+
+#nav2 ul {
+border-bottom:1px solid #CCCCCC;
+margin:0 20px 10px;
+padding:0 0 5px;
+}
+
+#nav2 ul a {
+background:url("/images/subnav.png") no-repeat scroll 0 -28px transparent;
+display:block;
+height:28px;
+line-height:25px;
+text-align:center;
+width:90px;
+}
+
+#nav2 ul a.on {
+background-position:0 0;
+color:#FFFFFF;
+text-decoration:none;
+}
+
+ol, ul {
+list-style:none outside none;
+}
+
+.box {
+background:url("/images/boxf7.png") repeat-x scroll center bottom #EEEEEE;
+padding-bottom:10px;
+}
+
+.table, .tablefree, .tablelayout {
+background:none repeat scroll 0 0 #F3F3F3;
+width:100%;
+}
+
+.border {
+border:1px solid #CCCCCC;
+}
+
+table {
+border-spacing:0;
+}
+
+.tr2 {
+background:none repeat scroll 0 0 #FCFCFC;
+}

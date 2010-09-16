@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <%= stylesheet_link_tag 'nav-base','nav-topbar','nav-sidebar' %>
+    <%= javascript_include_tag 'nav' %>
+    <%= stylesheet_link_tag 'admin' %>
+    <!--
+    <link rel="stylesheet" type="text/css" href="/stylesheets/nav-base.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/nav-topbar.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/nav-sidebar.css" />
+
+    <script type="text/javascript" src="/javascripts/nav.js">
+
+    /***********************************************
+    * All Levels Navigational Menu- (c) Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+    ***********************************************/
+
+    </script>
+    -->
+
+  </head>
+  <body>
+    <div id="scene">
+      <div id="header">
+        <div id="login">
+          <%= current_user.login %>,
+          <%= link_to '注销','/logout' %>
+        </div>
+        <div id="logo"><%= link_to 'lrc_控制管理','/admin' %></div>
+        <div id="nav">
+          <div id="ddtopmenubar" class="mattblackmenu">
+            <ul>
+              <li><a href="/admin">Home</a></li>
+              <li><a href="/admin/articles" rel="ddsubmenu1">文章</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        ddlevelsmenu.setup("ddtopmenubar", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+      </script>
+
+      <!--HTML for the Drop Down Menus associated with Top Menu Bar-->
+      <!--They should be inserted OUTSIDE any element other than the BODY tag itself-->
+      <!--A good location would be the end of the page (right above "</BODY>")-->
+
+      <!--Top Drop Down Menu 1 HTML-->
+
+
+      <ul id="ddsubmenu1" class="ddsubmenustyle">
+        <li><%= link_to '列表', admin_articles_path %></li>
+        <li><%= link_to '新增', new_admin_article_path %></li>
+      </ul>
+      <div id="page"
+      <div id="content">
+        <div id="nav2">
+          <%= yield :left_side %>
+        </div>
+        <div id="main">
+          <%= yield :main %>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+

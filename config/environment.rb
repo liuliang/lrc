@@ -38,4 +38,9 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+
+# 这测时候邮件发送的,以后有了邮件服务器可以用
+#  config.active_record.observers = :user_observer
+
 end
