@@ -123,3 +123,24 @@ border-spacing:0;
 .tr2 {
 background:none repeat scroll 0 0 #FCFCFC;
 }
+
+#msg.ok {
+background-color:#669900;
+background-image:url("/images/iconright.gif");
+}
+
+#msg {
+background:url("/images/iconmsg.gif") no-repeat scroll 10px 6px #666666;
+bottom:0;
+color:#FFFFFF;
+position:fixed;
+width:100%;
+}
+#msg div {
+margin:2px 2px 2px 34px;
+}
+
+#msg.err {
+background-color:#FF3300;
+background-image:url("/images/iconx.gif");
+}

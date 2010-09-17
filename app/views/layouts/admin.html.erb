@@ -56,15 +56,25 @@
         <li><%= link_to '新增', new_admin_article_path %></li>
       </ul>
       <div id="page"
-      <div id="content">
-        <div id="nav2">
-          <%= yield :left_side %>
-        </div>
-        <div id="main">
-          <%= yield :main %>
+           <div id="content">
+          <div id="nav2">
+            <%= yield :left_side %>
+          </div>
+          <div id="main">
+            <%= yield :main %>
+          </div>
+          <% if flash[:notice] || flash[:error] %>
+            <div id="msg" class="<%= flash[:notice].blank? ? 'err' : 'ok' %>">
+              <div style="float:left">
+                <%= flash[:notice] %>
+                <%= flash[:error] %>
+              </div>
+              <%= link_to '关闭',"#", :onclick=>"this.parent().remove();" ,:style=>"float:right" %>
+            </div>
+             <% flash[:notice]= flash[:error] = nil %>
+          <% end %>
         </div>
       </div>
-    </div>
     </div>
   </body>
 </html>

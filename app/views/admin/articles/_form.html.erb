@@ -1,5 +1,5 @@
 <%= javascript_include_tag :fckeditor %>
-<% form_for(@article) do |f| %>
+<% form_for(@article, :url=>admin_articles_path) do |f| %>
   <%= f.label :title,'长标题' %>
   <%= f.text_field :title %>
   <br/>
@@ -14,8 +14,10 @@
   <%= f.select :sub_category_id,SubCategory.all.collect {|sc| [ sc.name, sc.id ] } %>
   <br/>
   <br/>
-  <%= f.label :category_id,'是否发布' %>
+  <%= f.label :is_publised,'是否发布' %>
   <%= f.check_box :is_publised %>
+  <%= f.label :is_verify,'审核通过' %>
+  <%= f.check_box :is_verify %>
   <br/>
   <br/>
   <%= fckeditor_textarea("article", "content",  :width => '100%', :height => '500px') %>

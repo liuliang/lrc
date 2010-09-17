@@ -1,7 +1,7 @@
 class Admin::ArticlesController < ApplicationController
   layout 'admin'
-  before_fitler :find_user
-  
+  before_filter :find_user
+
   def index
     @articles = Article.all
 
@@ -15,16 +15,14 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @article }
     end
   end
 
   def new
-    @article = Article.new
+    @article = Article.new(:is_publised=>1,:is_verify=>1)
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @article }
     end
   end
 
@@ -34,12 +32,14 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
-
+    @article.user_id = current_user.id
+    
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
         format.html { redirect_to admin_article_url(@article) }
       else
+        flash[:error] = 'error'
         format.html { render :action => "new" }
       end
     end
@@ -51,11 +51,9 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         flash[:notice] = 'Article was successfully updated.'
-        format.html { redirect_to(@article) }
-        format.xml  { head :ok }
+        format.html { redirect_to(admin_article_url @article) }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -63,10 +61,8 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-
     respond_to do |format|
-      format.html { redirect_to(articles_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to(admin_articles_url) }
     end
   end
 

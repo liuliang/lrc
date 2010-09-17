@@ -1,12 +1,8 @@
-<h1>Editing article</h1>
+<% content_for :left_side do -%>
+  <%= render :partial => 'left_side',:locals => { :on=>2 } %>
+<% end -%>
 
-<% form_for(@article) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<% content_for :main do -%>
+  <h1>Editing article</h1>
+  <%= render :partial => 'form' %>
+<% end -%>
