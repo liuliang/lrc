@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   layout 'admin'
+  before_fitler :find_user
   
   def index
     @articles = Article.all
@@ -70,4 +71,14 @@ class Admin::ArticlesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+protected
+
+  def find_user
+    unless logged_in?
+      flash[:notice] = '未登录'
+      redirect_to login_path
+    end
+  end
+
 end
