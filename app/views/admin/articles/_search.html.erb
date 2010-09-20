@@ -1,7 +1,55 @@
-<div class="box">
-  <table class="table border">
-    <caption>查询条件</caption>
-    <tbody>
-    </tbody>
-  </table>
-</div>
+<script type="text/javascript">
+  jQuery(function() {
+<% if false;'可以选择时间的插件:datetimepicker 这个用不到 先不用' %>
+  <%#*jquery-ui-timepicker-addon-0.6.min   javascript_include_tag%>
+      $('#start_time').datetimepicker({
+        showSecond:true,
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm:ss'
+      });
+      $('#end_time').datetimepicker({
+        showSecond:true,
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm:ss'
+      });
+<% end %>
+    jQuery("#start_time").datepicker({dateFormat: 'yy-mm-dd'});
+    jQuery("#end_time").datepicker({dateFormat: 'yy-mm-dd'});
+  });
+</script>
+<% if false;'可以选择时间的插件:datetimepicker 这个用不到 先不用' %>
+  <style type="text/css">
+    #ui-timepicker-div dl{ text-align: left; }
+    #ui-timepicker-div dl dt{ height: 25px; }
+    #ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+  </style>
+<% end %>
+<% form_tag("/admin/articles/search") do %>
+  <div class="box">
+    <table class="table border th">
+      <caption>查询条件</caption>
+      <tbody>
+        <tr>
+          <td width="7%">标题:</td>
+          <td width="13%"><%= text_field_tag :title,params[:title] %></td>
+          <td width="7%">主分类:</td>
+          <td width="13%"><%= collection_select 'search', 'category_id',Category.all,:id,:name,{:include_blank => '选择' }, :id=>'search_categroy_id'%></td>
+          <td width="7%">次分类:</td>
+          <td width="13%"><%= collection_select 'search', 'sub_category_id',SubCategory.all,:id,:name,{:include_blank => '选择'}, :id=>'search_sub_categroy_id' %></td>
+          <td width="7%">发布人:</td>
+          <td width="13%"><%= text_field_tag :user_login,params[:user_login] %></td>
+        </tr>
+        <tr class="tr3">
+          <td width="7%">开始时间:</td>
+          <td width="13%"><%= text_field_tag :start_time,params[:start_time],:id=>'start_time' %></td>
+          <td width="7%">结束时间:</td>
+          <td width="13%"><%= text_field_tag :end_time,params[:end_time],:id=>'end_time' %></td>
+          <td width="7%">发布状态:</td>
+          <td width="13%"><%= select_tag 'is_publised',options_for_select([['all',nil],['未发布','0'],['发布','1']],params[:is_publised]) %></td>
+          <td></td>
+          <td><%= submit_tag '查询', :class=>'fr' %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% end -%>

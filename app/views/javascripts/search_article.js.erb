@@ -1,0 +1,24 @@
+$(document).ready(function () {
+var scs = new Array();
+<% @sub_categories.each do |sc| -%>
+  scs.push(new Array(<%= sc.category.id%>, '<%= sc.name%>', <%= sc.id%>));
+<%end%>
+
+function categorySelected() {
+var search_categroy_id = $('#search_categroy_id').val();
+var options = $('#search_sub_categroy_id')[0].options;
+options.length = 0;
+options[options.length] = new Option("次分类", "");
+
+jQuery.each(scs,function(){
+if (this[0] == search_categroy_id) {
+  options[options.length] = new Option(this[1],this[2]);
+}
+});
+}
+categorySelected();
+$("#search_categroy_id").change(function(){
+categorySelected();
+})
+
+});

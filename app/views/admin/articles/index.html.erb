@@ -1,3 +1,6 @@
+<% content_for :header do -%>
+  <%= javascript_include_tag 'search_article' %>
+<% end -%>
 <% content_for :left_side do -%>
 <%= render :partial => 'left_side' ,:locals => { :on => 1 } %>
 <% end -%>

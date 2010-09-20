@@ -12,8 +12,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :articles
 
+  map.resources :javascripts, :collection => { :search_article => :get }
+
   map.namespace(:admin) do |admin|
-    admin.resources :articles
+    admin.resources :articles, :collection => { :search => :post }
     admin.root :controller => :dashboards, :action => :index
   end
 

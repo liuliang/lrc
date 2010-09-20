@@ -3,11 +3,12 @@ class Admin::ArticlesController < ApplicationController
   before_filter :find_user
 
   def index
-    @articles = Article.all
-
+    @articles = Article.paginate :page => params[:page]
+#    articles_search
     respond_to do |format|
       format.html # index.html.erb
     end
+    
   end
 
   def show
@@ -66,13 +67,54 @@ class Admin::ArticlesController < ApplicationController
     end
   end
 
-protected
+def search
+  articles_search
+  render :action => 'index'
+end
+
+
+  protected
 
   def find_user
     unless logged_in?
       flash[:notice] = '未登录'
       redirect_to login_path
     end
+  end
+
+  def articles_search
+    conds , conds_h = [],[]
+
+    unless params[:title].blank?
+      conds << " (title like ? or short_title like ?)"
+      conds_h << "%#{params[:title]}%"
+      conds_h << "%#{params[:title]}%"
+    end
+
+    unless params[:user_login].blank?
+      conds << " users.login like ?"
+      conds_h << "%#{params[:user_login]}%"
+    end
+
+    unless params[:start_time].blank?
+      conds << " DATE_FORMAT(created_at,'%%Y-%%m-%%d') >= '#{params[:start_time]}'"
+    end
+
+    unless params[:end_time].blank?
+      conds << " DATE_FORMAT(created_at,'%%Y-%%m-%%d') <= '#{params[:end_time]}'"
+    end
+    
+    unless params[:search].blank?
+      params[:search].each do |k,v|
+        unless v.blank?
+          conds << " #{k} = ?"
+          conds_h << v
+        end
+      end
+    end
+
+    @articles = Article.paginate(:include=>:user,:conditions => [conds.join(' and '),conds_h],:page => params[:page],:order => 'articles.created_at desc')
+
   end
 
 end
