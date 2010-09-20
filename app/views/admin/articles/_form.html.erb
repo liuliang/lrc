@@ -1,5 +1,5 @@
 <%= javascript_include_tag :fckeditor %>
-<% form_for(@article, :url=>admin_articles_path) do |f| %>
+<% form_for(@article, :url=>admin_article_path(@article)) do |f| %>
   <%= f.label :title,'长标题' %>
   <%= f.text_field :title %>
   <br/>

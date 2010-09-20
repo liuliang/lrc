@@ -1,0 +1,31 @@
+<div class="box">
+  <table class="table border">
+    <caption>权限列表</caption>
+    <tbody>
+      <tr>
+        <th width="100px">id</th>
+        <th>登录名</th>
+        <th>Email</th>
+        <th>用户名</th>
+        <th>权限</th>
+        <th width="100px">创建时间</th>
+        <th width="100px">操作</th>
+      </tr>
+      <% @users.each do |user| -%>
+        <tr class="<%= cycle('','tr3') %>">
+          <td><%= link_to user.id, admin_user_path(user) %></td>
+          <td><%= user.login %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.roles.collect{|r| r.name }.join(',') %></td>
+          <td><%= user.created_at.strftime("%Y-%m-%d") %></td>
+          <td width="100px">
+            <%= link_to '修改',edit_admin_user_path(user),:class=>"btt bttb" %>
+            <%= link_to '删除',admin_user_path(user),:confim=>'确定',:method=>'destroy',:class=>"btt" %>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+</div>

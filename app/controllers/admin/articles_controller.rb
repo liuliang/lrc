@@ -1,6 +1,7 @@
 class Admin::ArticlesController < ApplicationController
+  require_role [:admin]
   layout 'admin'
-  before_filter :find_user
+#  before_filter :find_user
 
   def index
     @articles = Article.paginate :page => params[:page]

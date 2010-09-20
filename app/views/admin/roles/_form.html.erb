@@ -1,0 +1,9 @@
+<% form_for(@role, :url=>admin_role_path(@role)) do |f| %>
+  <%= f.label :name,'名字' %>
+  <%= f.text_field :name %>
+  <br/>
+  <br/>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

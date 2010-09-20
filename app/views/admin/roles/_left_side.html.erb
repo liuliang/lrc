@@ -1,0 +1,7 @@
+<% on ||= 1 %>
+<ul>
+  <li><a href="/admin/roles" <%= is_on?(on, 1) %>>权限管理</a></li>
+</ul>
+<ul>
+  <li><a href="/admin/roles/new" <%= is_on?(on, 2) %>>新增权限</a></li>
+</ul>

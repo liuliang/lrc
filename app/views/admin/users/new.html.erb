@@ -1,0 +1,9 @@
+
+<% content_for :left_side do -%>
+  <%= render :partial => 'left_side',:locals => { :on=>2 } %>
+<% end -%>
+
+<% content_for :main do -%>
+  <h1>New User</h1>
+  <%= render :partial => 'form' %>
+<% end -%>

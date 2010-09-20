@@ -36,6 +36,8 @@
             <ul>
               <li><a href="/admin">Home</a></li>
               <li><a href="/admin/articles" rel="ddsubmenu1">文章</a></li>
+              <li><a href="/admin/users" rel="ddsubmenu2">用户管理</a></li>
+              <li><a href="/admin/roles" rel="ddsubmenu3">权限管理</a></li>
             </ul>
           </div>
         </div>
@@ -56,6 +58,15 @@
         <li><%= link_to '列表', admin_articles_path %></li>
         <li><%= link_to '新增', new_admin_article_path %></li>
       </ul>
+      <ul id="ddsubmenu2" class="ddsubmenustyle">
+        <li><%= link_to '列表', admin_users_path %></li>
+      </ul>
+
+      <ul id="ddsubmenu3" class="ddsubmenustyle">
+        <li><%= link_to '列表', admin_roles_path %></li>
+        <li><%= link_to '新增', new_admin_role_path %></li>
+      </ul>
+
       <div id="page"
            <div id="content">
           <div id="nav2">

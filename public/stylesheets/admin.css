@@ -191,3 +191,14 @@ background-position:0 -22px;
 .fr{
     float:right;
 }
+
+.line{
+    padding-bottom: 5px;
+}
+
+.line label{
+    margin-left: 10px;
+    display:block;
+    width:100px;
+    float: left;
+}

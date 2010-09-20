@@ -1,0 +1,8 @@
+<% content_for :left_side do -%>
+<%= render :partial => 'left_side' ,:locals => { :on => 1 } %>
+<% end -%>
+<% content_for :main do -%>
+<h1>用户管理</h1>
+<%= render :partial => 'list' %>
+<% end -%>
+

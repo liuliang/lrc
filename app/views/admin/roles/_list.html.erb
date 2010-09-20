@@ -1,0 +1,26 @@
+<div class="box">
+  <table class="table border">
+    <caption>权限列表</caption>
+    <tbody>
+      <tr>
+        <th width="100px">id</th>
+        <th>名字</th>
+        <th width="100px">创建时间</th>
+        <th width="100px">操作</th>
+      </tr>
+      <% @roles.each do |r| -%>
+      <tr class="<%= cycle('','tr3') %>">
+        <td><%= r.id %></td>
+        <td><%= r.name %></td>
+        <%#*article.user.login%>
+        <td><%= r.created_at.strftime("%Y-%m-%d") %></td>
+        <td width="100px">
+        <%= link_to '修改',edit_admin_role_path(r),:class=>"btt bttb" %>
+        <%= link_to '删除',admin_role_path(r),:confim=>'确定',:method=>'destroy',:class=>"btt" %>
+        </td>
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+  <%= will_paginate @roles %>
+</div>

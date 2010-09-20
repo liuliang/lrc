@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace(:admin) do |admin|
     admin.resources :articles, :collection => { :search => :post }
+    admin.resources :roles
+    admin.resources :users
     admin.root :controller => :dashboards, :action => :index
   end
 
