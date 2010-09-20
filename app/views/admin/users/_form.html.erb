@@ -1,4 +1,4 @@
-<% form_for(@user, :url=>admin_user_path(@user)) do |f| %>
+<% form_for(@user, :url=>"#{ @is_new.blank? ? admin_user_path(@user) : admin_users_path }") do |f| %>
   <div class="line">
     <%= f.label :login,'登录名' %>
     <%= f.text_field :login, :readonly=>'readonly' %>

@@ -22,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new(:is_publised=>1,:is_verify=>1)
-
+    @is_new = 'true'
     respond_to do |format|
       format.html # new.html.erb
     end

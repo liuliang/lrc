@@ -1,0 +1,18 @@
+<% form_for(@sub_category, :url=>"#{ @is_new.blank? ? admin_sub_category_path(@sub_category) : admin_sub_categories_path }") do |f| %>
+  <div class="line">
+    <%= f.label :category_id,'主分类' %>
+    <%= f.select :category_id, Category.all.collect{|c| [c.name,c.id]} %>
+  </div>
+
+  <div class="line">
+    <%= f.label :name,'名字' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="line">
+    <p>
+      <%= f.submit 'Create' %>
+    </p>
+  </div>
+
+<% end %>

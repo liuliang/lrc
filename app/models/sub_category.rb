@@ -6,4 +6,9 @@ class SubCategory < ActiveRecord::Base
   validates_presence_of :name,:category_id
   validates_uniqueness_of :name
 
+  def per_page
+    20
+  end
+
+
 end

@@ -14,7 +14,7 @@ class Admin::RolesController < ApplicationController
 
   def new
     @role = Role.new
-
+    @is_new = 'true'
     respond_to do |format|
       format.html # new.html.erb
     end

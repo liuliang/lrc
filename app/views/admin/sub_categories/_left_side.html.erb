@@ -1,9 +1,9 @@
 <% on ||= 1 %>
 <ul>
-  <li><a href="/admin/categories" <%= is_on?(on, 1) %>>所有分类</a></li>
+  <li><a href="/admin/categories" <%= is_on?(on, 1) %>>所有主分类</a></li>
 </ul>
 <ul>
-  <li><a href="/admin/categories/new" <%= is_on?(on, 2) %>>新增分类</a></li>
+  <li><a href="/admin/categories/new" <%= is_on?(on, 2) %>>新增主分类</a></li>
 </ul>
 <ul>
   <li><a href="/admin/sub_categories" <%= is_on?(on, 3) %>>所有次分类</a></li>
@@ -11,3 +11,4 @@
 <ul>
   <li><a href="/admin/sub_categories/new" <%= is_on?(on, 4) %>>新增此分类</a></li>
 </ul>
+

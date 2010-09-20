@@ -1,0 +1,27 @@
+<div class="box">
+  <table class="table border">
+    <caption>列表</caption>
+    <tbody>
+      <tr>
+        <th width="100px">id</th>
+        <th>名字</th>
+        <th>主分类</th>
+        <th width="100px">创建时间</th>
+        <th width="100px">操作</th>
+      </tr>
+      <% @sub_categories.each do |sub_category| -%>
+      <tr class="<%= cycle('','tr3') %>">
+        <td><%= sub_category.id %></td>
+        <td><%= sub_category.name %></td>
+        <td><%= sub_category.category.name %></td>
+        <td><%= sub_category.created_at.strftime("%Y-%m-%d") %></td>
+        <td width="100px">
+        <%= link_to '修改',edit_admin_sub_category_path(sub_category),:class=>"btt bttb" %>
+        <%= link_to '删除',admin_sub_category_path(sub_category),:confim=>'确定',:method=>'destroy',:class=>"btt" %>
+        </td>
+      </tr>
+      <% end -%>
+    </tbody>
+  </table>
+  <%= will_paginate @sub_categories %>
+</div>

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -19,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :roles
     admin.resources :users
     admin.resources :categories
+    admin.resources :sub_categories
     admin.root :controller => :dashboards, :action => :index
   end
 
