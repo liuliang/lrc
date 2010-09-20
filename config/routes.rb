@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :articles, :collection => { :search => :post }
     admin.resources :roles
     admin.resources :users
+    admin.resources :categories
     admin.root :controller => :dashboards, :action => :index
   end
 

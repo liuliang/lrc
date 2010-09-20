@@ -1,0 +1,13 @@
+<% form_for(@category, :url=>admin_category_path(@category)) do |f| %>
+  <div class="line">
+    <%= f.label :name,'名字' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="line">
+    <p>
+      <%= f.submit 'Create' %>
+    </p>
+  </div>
+
+<% end %>
