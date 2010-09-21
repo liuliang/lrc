@@ -42,16 +42,19 @@ class Admin::UsersController < ApplicationController
 #  end
 
   def update
+    
+    params[:user][:role_ids] ||= []
     @user = User.find(params[:id])
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        @user.role_ids = params[:user][:role_ids] #不知道怎么会事情，不能自动关联进去,FUCK
         flash[:notice] = 'User was successfully updated.'
         format.html { redirect_to(admin_user_url(@user)) }
       else
         format.html { render :action => "edit" }
       end
     end
+    
   end
 
   def destroy

@@ -22,9 +22,10 @@
     </div>
   <% end %>
   <div class="line">
-    <% Role.all.each do |role| -%>
-      <%=  check_box_tag('user[roles_ids][]',role.id,@user.roles.include?(role)) %><%= role.name %>
-    <% end -%>
+    <% for role in Role.find(:all) %>
+      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+      <%= role.name %>
+    <% end %>
   </div>
   <div class="line">
     <p>
