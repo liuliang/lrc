@@ -89,7 +89,7 @@
                 <%= flash[:notice] %>
                 <%= flash[:error] %>
               </div>
-              <%= link_to '关闭',"#", :onclick=>"this.parent().remove();" ,:style=>"float:right" %>
+              <%= link_to '关闭',"javascript:void(0)", :onclick=>"$(this).parent().remove();" ,:style=>"float:right" %>
             </div>
             <% flash[:notice]= flash[:error] = nil %>
           <% end %>
